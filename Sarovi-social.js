@@ -303,3 +303,13 @@ function loadLikedImages() {
       }
   });
 }
+
+document.querySelectorAll('.nav-item2').forEach(item => {
+  item.addEventListener('click', () => {
+      if (item.id === 'home') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+          alert(`${item.id.charAt(0).toUpperCase() + item.id.slice(1)} icon clicked!`);
+      }
+  });
+});
