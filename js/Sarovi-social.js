@@ -303,13 +303,90 @@ function loadLikedImages() {
       }
   });
 }
-
 document.querySelectorAll('.nav-item2').forEach(item => {
   item.addEventListener('click', () => {
       if (item.id === 'home') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-          alert(`${item.id.charAt(0).toUpperCase() + item.id.slice(1)} icon clicked!`);
+          // alert(`${item.id.charAt(0).toUpperCase() + item.id.slice(1)} icon clicked!`);
       }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const icon = document.getElementById('icon');
+  const fullscreenDiv = document.getElementById('fullscreen-div');
+  const closeBtn = document.getElementById('close-btn');
+
+  // Open the fullscreen div
+  icon.addEventListener('click', function () {
+      fullscreenDiv.style.display = 'flex'; // Show the div
+  });
+
+  // Close the fullscreen div
+  closeBtn.addEventListener('click', function () {
+      fullscreenDiv.style.display = 'none'; // Hide the div
+  });
+
+  // Optionally, close the fullscreen div when clicking outside of it
+  fullscreenDiv.addEventListener('click', function (event) {
+      if (event.target === fullscreenDiv) {
+          fullscreenDiv.style.display = 'none';
+      }
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const searchInput = document.getElementById('search');
+  
+  searchInput.addEventListener('focus', () => {
+      searchInput.style.width = '100%';
+  });
+
+  searchInput.addEventListener('blur', () => {
+      if (searchInput.value === '') {
+          searchInput.style.width = '50%'; // Adjust as needed
+      }
+  });
+});
+
+
+// profile pichture
+let profilepic = document.getElementById("profile-pic")
+let inputFile = document.getElementById("profile")
+
+inputFile.onchange = function(){
+  profilepic.src = URL.createObjectURL(inputFile.files[0])
+}
+
+// profile pichture
+
+
+// books videos posters
+
+function popBooks(){
+    let books = document.querySelector(".books-section");
+    let close = document.querySelector(".close-btn")
+    books.classList.toggle("booksid")
+    close.classList.remove("booksid")
+  }
+
+  
+function popPoster(){
+    let books = document.querySelector(".poster-section");
+    let close = document.querySelector(".close-btn")
+    books.classList.toggle("postersid")
+    close.classList.remove("postersid")
+    console.log(books)
+  }
+function videosClick(){
+    let books = document.querySelector(".videos-section");
+    let close = document.querySelector(".close-btn")
+    books.classList.toggle("videoid")
+    close.classList.remove("videoid")
+    console.log(books)
+  }
+
+  
+// books videos posters
